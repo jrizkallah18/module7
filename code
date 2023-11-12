@@ -1,0 +1,154 @@
+# Jonathan Rizkallah
+# 10/23/23
+import math
+"""
+Problem 1: Write a function areaOfCircle(r) which returns
+the area of a circle of radius r. Make sure you use the math
+module in your solution.    
+  
+"""
+
+user = int(input("What is the radius of your circle? ")) # Here I created a user variable to accpet the input from a user of a radius value.
+
+def areaOfCircle(r): # Here I defined a function named areaOfCircle that has a parameter named r that will take the user input for a radius.
+  area = math.pi * (r**2) # This will calculate the area of the circle with the user radius.
+  return area # This will return the value of area.
+    
+radius = f"The area of your circle with the radius of {user} is {areaOfCircle(user)}."
+print(radius)
+
+"
+Problem 2: Write a Python function to check whether a number is
+in a given range. Use range(1,10). Print whether the number is in
+or not in the range.
+
+  """
+
+user = int(input("Please enter a number: ")) # This will ask the user for a value so that we can check if its within 1 and 10.
+
+def inRange(): # When this function is called it will take the user input and check if its within 1 and 10.
+    if user in range(1,10):
+        print("Number is within range!")
+    else:
+        print("Number is not within range.")
+inRange() # Calling the function.
+    
+"""
+Problem 3: Write a Python function to multiply all the numbers in a list.
+Use list [5, 2, 7, -1].   
+  
+"""
+
+numbers = [5, 2, 7, -1]
+
+def multiplyList(n): # This function takes a parameter which we need to supply when we call it later. We will supply the numbers list.
+    result = 1 # Here I initilized the value of result as 1.
+    for num in n: # The numbers list that I supply as an argument in the function call will replace n
+        result *= num # This operator multiplies the left by the right and then assigns the new value to the left side.
+    return result # This return statement returns the value of result after all iterations/all values in the numbers list have been multiplied.
+
+
+print(multiplyList(numbers)) # Numbers is the argument we give. This will supply the function above with  
+                             # the required values it needs to find the prodcut of all the values in the list.
+
+
+"
+Problem 4: Write a Python function that takes a list of numbers
+and returns a new list with unique elements of the first list.
+Use list [1, 3, 3, 3, 6, 2, 3, 5]. Use the append function.
+
+"""
+
+list = [1, 3, 3, 3, 6, 2, 3, 5]
+
+def uniqueNumbers(list): # Here I created a function that takes one parameter named list.
+    unique = [] # An empty list to hold the unique numbers appeneded from the list we input.
+    for number in list: # This for loop will loop through each of the numbers in the list we give as an argument when we call the function.
+        if number not in unique: # This if statement will check if the number assigned to the loo variabel from our list is unique.
+            unique.append(number) # This code will appened a number not already in our new list.
+    return unique # Returns unqiue.
+print(uniqueNumbers(list)) # In this print statemnt I called our function and used our orginal list as an argument.
+
+
+"
+Problem 5: Use the following chunk of code as a base to produce the
+image shown below.  
+  
+"""
+import turtle
+
+window = turtle.Screen()
+
+def drawSquare(t, sz, a): # This function has three parameters t for turtle, sz for size and a as a third variable.
+    for i in range(4): 
+        for i in range(4): # Here I nested another for loop in the first for loop to run this code 4 times
+            t.forward(sz)
+            t.left(90)
+        sz += a # This code is only included in the first for loop so this will only run after the second for loop above has already executed for the current iteration.
+        t.penup() # The following code allows the turtle to reposition itself to draw the outer squares.
+        t.backward(a / 2)
+        t.right(90)
+        t.forward(a / 2)
+        t.left(90)
+        t.pendown()
+
+
+
+  
+window = turtle.Screen()
+
+alex = turtle.Turtle()
+alex.color("blue")
+
+drawSquare(alex, 10, 10) # Here I called the drawSquare function and gave it three arguments alex, 10, 10.
+
+
+window.exitonclick()
+
+
+
+"
+Problem 6: Given the following code with the Python Class car: 
+  
+"""
+
+class car:
+
+	def __init__(self, model, year, color, type, manufacturer): # Added type and manufacturer.
+		self.model = model
+		self.year = year
+		self.color = color
+		self.type = type # Here I added the type attribute.
+		self.manufacturer = manufacturer # Here I added the manufacturer attribute.
+
+	def get_model(self):
+		return self.color
+ 
+	def get_year(self):
+		return self.year
+
+	def get_color(self):
+		return self.color
+
+	def get_type(self): # Here I added the get_type method.
+		return self.type
+
+	def get_manufacturer(self):  # Here I added the get_manufacturer method.
+		return self.manufacturer
+
+	def fullSpecs(self):
+		return self.model + " " + str(self.year) + " " + self.color + " " + self.type + " " + self.manufacturer # I modified this return statement to include the type and manufactuer.
+
+car1 = car("Explorer", 2012, "Blue", "Sports", "Ford") 
+car2 = car("Model X", 2020, "Black", "Sedan", "Tesla")
+
+print(car1.get_color())
+print(car1.get_model())
+print(car2.get_color())
+print(car1.fullSpecs())
+print(car2.fullSpecs())
+
+
+
+
+
